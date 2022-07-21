@@ -5,17 +5,28 @@ function CategoryFilter({ categories, onCategoryChange, selectedCategory }) {
 
   const selectCategory = (e) => {
     onCategoryChange(e);
+    // e.target.classList.add('selected')
     setSelectedButton(prevButton => e.target.value)
+  }
+
+  const setClass = (button) => {
+    if ( button.value === selectedCategory ) {
+      return 'selected'
+    } else {
+      return ''
+    }
   }
 
   const categoryButtons = categories.map( category => {
       const key = Math.floor(Math.random() * 100000)
+      // const isSelected = category === selectedCategory ? 'selected' : '';
       return(
         <button
           key={ key }
           value={ category }
           onClick={ selectCategory }
-          className={ selectedButton === category ? 'selected' : ''}
+          className={ selectedButton === category ? 'selected' : '' }
+          // className={ isSelected }
         >
           { category }
         </button>
