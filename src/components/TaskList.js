@@ -4,8 +4,7 @@ import Task from "./Task";
 function TaskList({ tasks }) {
   const displayTasks = () => {
     return tasks.map( task => {
-      const key = Math.floor(Math.random() * 100) + 1;
-      console.log(task, key)
+      const key = Math.floor(Math.random() * 100000)
       return (
         <Task key={ key } text={ task.text } category={ task.category }/>
       )
